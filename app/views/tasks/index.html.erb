@@ -2,10 +2,10 @@
 
 <h1>Listing Tasks</h1>
 
-<br>
+<div class="pull-right">
 <%= link_to 'New Task', new_task_path, class: "btn btn-info" %>
+</div>
 <br/>
-
 <div>
   <%= month_calendar events: @tasks do |date, tasks| %>
     <%= date %>
