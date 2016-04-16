@@ -23,11 +23,12 @@ ActiveRecord::Schema.define(version: 20160416114805) do
   end
 
   create_table "tasks", force: :cascade do |t|
-    t.string   "name",        limit: 255,   null: false
+    t.string   "name",        limit: 255,                   null: false
     t.text     "description", limit: 65535
     t.datetime "due_date"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.boolean  "complete",                  default: false
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
   end
 
   create_table "users", force: :cascade do |t|
