@@ -1,0 +1,20 @@
+
+
+<h1>Listing Tasks</h1>
+
+<br>
+<%= link_to 'New Task', new_task_path, class: "btn btn-info" %>
+<br/>
+
+<div>
+  <%= month_calendar events: @tasks do |date, tasks| %>
+    <%= date %>
+    <div>
+      <% tasks.each do |task| %>
+        <div class="label label-warning">
+          <%= link_to task.name, task %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
