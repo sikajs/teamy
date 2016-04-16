@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :meetings
   root 'tasks#index'
 
   resources :tasks
