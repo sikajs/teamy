@@ -11,7 +11,7 @@
     <%= date %>
     <div>
       <% tasks.each do |task| %>
-        <div class="label label-warning">
+        <div class="label <% if task.due_date.to_date >= Date.today %> label-warning <% else %> label-danger <% end %>">
           <%= link_to task.name, task %>
         </div>
       <% end %>
