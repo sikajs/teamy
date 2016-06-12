@@ -5,6 +5,7 @@ class CreateTasks < ActiveRecord::Migration
       t.text :description
       t.datetime :due_date
       t.boolean :complete,  default: false
+      t.belongs_to :user
 
       t.timestamps null: false
     end

@@ -12,6 +12,8 @@
 #
 
 class Task < ActiveRecord::Base
+  belongs_to :user
+  
   def start_time
     self.due_date
   end

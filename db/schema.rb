@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20160416114805) do
     t.text     "description", limit: 65535
     t.datetime "due_date"
     t.boolean  "complete",                  default: false
+    t.integer  "user_id",     limit: 4
     t.datetime "created_at",                                null: false
     t.datetime "updated_at",                                null: false
   end

@@ -7,9 +7,12 @@
 
 <p>
   <strong>Due date:</strong>
-  <%= @task.due_date %>
+  <%= @task.due_date.to_s(:long) %>
 </p>
 
+<p>
+  <strong>User:</strong>
+  <%= @task.user.email %>
 <p>
   <strong>Description:</strong>
   <%= @task.description %>
