@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :authorized?, only: [:edit, :update, :destroy]
 
   # GET /tasks
   # GET /tasks.json
@@ -26,7 +27,7 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     @task.user = current_user
-    
+
     respond_to do |format|
       if @task.save
         format.html { redirect_to @task, notice: 'Task was successfully created.' }
@@ -71,5 +72,11 @@ class TasksController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
       params.require(:task).permit(:name, :due_date, :description)
+    end
+
+    def authorized?
+      if @task.user != current_user
+        redirect_to tasks_path, alert: "You don't have permission to do this, only owner can do that."
+      end
     end
 end
